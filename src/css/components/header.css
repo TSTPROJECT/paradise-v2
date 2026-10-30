@@ -1,0 +1,82 @@
+/* ---------- Header: always on top of rooms so the building stays navigable ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto; z-index: var(--z-header);
+  height: var(--header-h);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 0 var(--gutter);
+  background: linear-gradient(var(--ink-1), rgba(7, 9, 8, .86));
+  border-bottom: 1px solid var(--line-soft);
+  transition: background-color .3s;
+}
+/* Inside a room the corridor behind must not ghost through the bar. */
+html.has-room .site-header { background: var(--ink-1); }
+.site-header__mark {
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 400 1.02rem/1 var(--f-display); letter-spacing: .3em; color: var(--bone); text-decoration: none;
+  padding: 10px 0;
+}
+.site-header__mark svg { color: var(--gilt); transition: transform .6s var(--ease-out); }
+.site-header__mark:hover svg { transform: rotate(180deg); }
+.site-header__floor {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 500 .64rem/1 var(--f-ui); letter-spacing: .3em; color: var(--bone-3);
+  padding: 8px 14px; border: 1px solid var(--line-soft);
+}
+.site-header__floor-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blood-4); box-shadow: 0 0 10px var(--blood-4); animation: pulse 2.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+
+.menu-toggle {
+  justify-self: end;
+  display: inline-flex; align-items: center; gap: 12px;
+  height: 40px; padding: 0 4px 0 14px;
+  font: 500 .68rem/1 var(--f-ui); letter-spacing: .3em; color: var(--bone-2);
+  transition: color .3s;
+}
+.menu-toggle:hover, .menu-toggle:focus-visible, .menu-toggle[aria-expanded="true"] { color: var(--gilt-hi); }
+.menu-toggle__lines { display: grid; gap: 6px; width: 24px; }
+.menu-toggle__lines i { display: block; height: 1px; background: currentColor; transition: transform .45s var(--ease-out); }
+.menu-toggle__lines i:last-child { width: 62%; justify-self: end; }
+.menu-toggle[aria-expanded="true"] .menu-toggle__lines i:first-child { transform: translateY(3.5px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle__lines i:last-child { width: 100%; transform: translateY(-3.5px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .site-header { grid-template-columns: 1fr auto; }
+  .site-header__floor { display: none; }
+  .menu-toggle__label { display: none; }
+  .menu-toggle { padding: 0 6px; width: 44px; justify-content: center; }
+}
+
+/* ---------- Directory overlay ---------- */
+.directory {
+  position: fixed; inset: var(--header-h) 0 0; z-index: var(--z-directory);
+  background: rgba(4, 5, 4, .97);
+  overflow-y: auto;
+  opacity: 0; transition: opacity .4s ease;
+}
+.directory.is-open { opacity: 1; }
+.directory__inner {
+  min-height: 100%;
+  max-width: 1100px; margin: 0 auto;
+  padding: clamp(28px, 6vh, 72px) var(--gutter) 96px;
+  display: grid; align-content: center; gap: 28px;
+}
+.directory__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); border-top: 1px solid var(--line-soft); }
+.directory__list li { border-bottom: 1px solid var(--line-soft); }
+.directory__list a {
+  display: flex; align-items: baseline; gap: 18px;
+  padding: 18px 8px; text-decoration: none; color: var(--bone-2);
+  transform: translateY(14px); opacity: 0;
+  transition: color .3s, transform .6s var(--ease-out), opacity .6s, background-color .3s;
+}
+.directory.is-open .directory__list a { transform: none; opacity: 1; }
+.directory__list li:nth-child(2) a { transition-delay: .03s; } .directory__list li:nth-child(3) a { transition-delay: .06s; }
+.directory__list li:nth-child(4) a { transition-delay: .09s; } .directory__list li:nth-child(5) a { transition-delay: .12s; }
+.directory__list li:nth-child(6) a { transition-delay: .15s; } .directory__list li:nth-child(7) a { transition-delay: .18s; }
+.directory__list li:nth-child(8) a { transition-delay: .21s; } .directory__list li:nth-child(9) a { transition-delay: .24s; }
+.directory__list a:hover, .directory__list a:focus-visible { color: var(--bone); background: var(--ink-2); }
+.directory__list a[aria-current] { color: var(--gilt-hi); }
+.directory__num { font: italic 400 1.6rem/1 var(--f-display); color: var(--gilt); min-width: 2.2ch; }
+.directory__name { font: 400 clamp(1.15rem, 2.2vw, 1.5rem)/1.2 var(--f-display); letter-spacing: .08em; }
+.directory__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; }
+.directory__secrets { margin-left: auto; font: 500 .64rem/1 var(--f-ui); letter-spacing: .26em; color: var(--bone-3); }

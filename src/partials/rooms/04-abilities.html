@@ -1,0 +1,95 @@
+  <!-- 04 ABILITIES -->
+  <section id="abilities" class="room room--abilities" role="dialog" aria-modal="true" aria-labelledby="abilities-title" data-room data-floor-label="ROOM 04 · ABILITIES">
+    <div class="room__bar">
+      <p class="room__number">ROOM 04 <span>/ 09</span></p>
+      <nav class="room__step" aria-label="Adjacent rooms">
+        <a class="room__step-link" href="#relationships" data-room-link aria-label="Previous room: Relationships">← <span>RELATIONSHIPS</span></a>
+        <a class="room__step-link" href="#club" data-room-link aria-label="Next room: Paradise Club"><span>PARADISE CLUB</span> →</a>
+      </nav>
+      <button class="btn btn--quiet room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">SUPERNATURAL FILE · CONTRACT-BOUND</p>
+        <h2 id="abilities-title" class="section-title" tabindex="-1">ABILITIES</h2>
+        <p class="ability-name">REBIRTH <span>/</span> RESURRECTION</p>
+      </header>
+
+      <div class="abilities">
+        <figure class="abilities__art">
+          <button class="abilities__artbtn" type="button" data-lightbox-open="7" aria-label="Enlarge artwork: bride of thorns">
+            <img src="assets/images/lust/bride-of-thorns-960.webp" srcset="assets/images/lust/bride-of-thorns-960.webp 960w, assets/images/lust/bride-of-thorns.webp 1441w" sizes="(min-width: 1000px) 32vw, 86vw"
+                 width="1441" height="2000" loading="lazy" decoding="async"
+                 alt="Dark painting of a smiling woman in a blood-stained white bridal gown scattered with red roses, wearing a crown of thorns and raising an ornate revolver to her head before a gilded frame.">
+          </button>
+          <figcaption>EXHIBIT B · THE CONDITION</figcaption>
+        </figure>
+
+        <div class="grave">
+          <div class="grave__stone">
+            <p class="grave__rip">HERE SHE RISES</p>
+            <p class="grave__trigger" lang="th">เงื่อนไขเดียวของการฟื้นคืนชีพ คือ <strong>ความตาย</strong></p>
+            <p class="grave__not" lang="th">นี่ไม่ใช่พลังรักษาบาดแผล และไม่ใช่การฟื้นฟูร่างกายในทันที ขณะที่ยังมีชีวิต ร่างกายของเธอเปราะบางเท่ามนุษย์ทั่วไป</p>
+          </div>
+          <ol class="rules" lang="th">
+            <li><span class="rules__n">I</span>ได้รับพลังผ่านสัญญากับเมมฟิสโต้ เมื่ออายุ 25 ปี</li>
+            <li><span class="rules__n">II</span>เมื่อเสียชีวิต เธอจะฟื้นคืนชีพที่หลุมศพของตนเอง ในสุสานนอกเมืองนิวยอร์ก</li>
+            <li><span class="rules__n">III</span>ร่างกายกลับคืนสู่สภาพเดียวกับตอนที่ทำสัญญา</li>
+            <li><span class="rules__n">IV</span>ความทรงจำทั้งหมดยังคงอยู่</li>
+            <li><span class="rules__n">V</span>เธอไม่สามารถฟื้นฟูร่างกายได้ในขณะที่ยังมีชีวิต</li>
+            <li><span class="rules__n">VI</span>ร่างกายยังคงเทียบเท่ากับมนุษย์ธรรมดา</li>
+            <li><span class="rules__n">VII</span>หากยังมีชีวิตอยู่ เธอจะแก่ตัวลงตามปกติ</li>
+            <li><span class="rules__n">VIII</span>ตลอดชีวิตของเธอ ยังไม่เคยมีชีวิตอยู่ต่อเนื่องเกินอายุ 30 ปี</li>
+          </ol>
+        </div>
+      </div>
+
+      <section class="cycle" aria-labelledby="cycle-title">
+        <h3 id="cycle-title" class="sub-title">THE CYCLE — INTERACTIVE MODEL</h3>
+        <div class="cycle__grid">
+          <div class="cycle__dial" aria-hidden="true" data-cycle-dial>
+            <svg viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="86" fill="none" stroke="#1B2E23" stroke-width="8"/>
+              <g stroke="#B79A62" stroke-opacity=".5">
+                <path d="M100 6 V18 M181.4 53 L171 59 M181.4 147 L171 141 M100 194 V182 M18.6 147 L29 141 M18.6 53 L29 59"/>
+              </g>
+              <circle class="cycle__arc" cx="100" cy="100" r="86" fill="none" stroke="#B79A62" stroke-width="8" stroke-dasharray="540.4" stroke-dashoffset="540.4" transform="rotate(-90 100 100)"/>
+              <text x="100" y="98" text-anchor="middle" class="cycle__age" data-cycle-age-svg>25</text>
+              <text x="100" y="122" text-anchor="middle" class="cycle__unit">BODY AGE</text>
+            </svg>
+          </div>
+          <div class="cycle__panel">
+            <dl class="cycle__stats">
+              <div><dt>BODY AGE</dt><dd data-cycle-age>25</dd></div>
+              <div><dt>YEARS REMEMBERED</dt><dd data-cycle-memory>0</dd></div>
+              <div><dt>REBIRTHS</dt><dd data-cycle-rebirths>0</dd></div>
+              <div><dt>LAST SEEN</dt><dd data-cycle-location lang="th">—</dd></div>
+            </dl>
+            <div class="cycle__actions">
+              <button class="btn btn--quiet" type="button" data-cycle-live>LIVE ONE YEAR</button>
+              <button class="btn btn--blood" type="button" data-cycle-die>TRIGGER: DEATH</button>
+              <button class="btn btn--text" type="button" data-cycle-reset>RESET MODEL</button>
+            </div>
+            <p class="cycle__log" lang="th" aria-live="polite" data-cycle-log>เริ่มต้นที่อายุ 25 ปี — วันที่สัญญาถูกลงนาม</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="contract">
+        <button class="wax-seal" type="button" aria-expanded="false" aria-controls="contract-terms" data-contract-seal>
+          <span class="wax-seal__disc" aria-hidden="true">XXV</span>
+          <span class="wax-seal__label">BREAK THE CONTRACT SEAL</span>
+        </button>
+        <div id="contract-terms" class="contract__terms" hidden>
+          <p class="contract__head">ADDENDUM · FOUND BENEATH THE SEAL</p>
+          <ol lang="th">
+            <li>ผู้ลงนาม: เพลินพริ้ม ดาฤดี เทวอนันต์ — อายุ ณ วันลงนาม 25 ปี</li>
+            <li>สิ่งที่ถูกส่งคืนหลังความตาย: ร่างกาย ตามสภาพ ณ วันลงนาม</li>
+            <li>สิ่งที่ <em>ไม่</em> อยู่ในเงื่อนไขการส่งคืน: ความทรงจำ — ผู้ลงนามจะจดจำทุกครั้ง</li>
+            <li>ค่าตอบแทน: การเป็นผู้รับใช้และตัวแทนของผู้ถือสัญญา</li>
+          </ol>
+          <p class="contract__sig">— M.</p>
+        </div>
+      </div>
+    </div>
+  </section>

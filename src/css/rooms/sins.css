@@ -1,0 +1,31 @@
+/* 07 — The Seven Sins */
+.sins { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.sins__table { position: relative; width: min(480px, 100%); aspect-ratio: 1; justify-self: center; container-type: inline-size; }
+.sins__ouroboros { position: absolute; inset: 9%; width: 82%; height: 82%; animation: ouro 120s linear infinite; }
+@keyframes ouro { to { transform: rotate(360deg); } }
+.seats li {
+  --a: calc(-90deg + var(--i) * 51.4286deg);
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--a)) translate(43cqw) rotate(calc(-1 * var(--a)));
+}
+.seat {
+  display: grid; justify-items: center; gap: 4px;
+  width: clamp(64px, 19cqw, 92px); aspect-ratio: 1; border-radius: 50%; align-content: center;
+  border: 1px solid var(--line); background: var(--ink-1);
+  transition: border-color .3s, background-color .3s, box-shadow .4s, transform .4s var(--ease-out);
+}
+.seat__num { font: italic 400 1.2rem/1 var(--f-display); color: var(--gilt); }
+.seat__name { font: 500 .44rem/1 var(--f-ui); letter-spacing: .18em; color: var(--bone-4); }
+.seat:hover, .seat:focus-visible { border-color: var(--line-strong); transform: scale(1.06); }
+.seat[aria-pressed="true"] { border-color: var(--gilt); background: var(--forest-8); box-shadow: 0 0 30px rgba(183, 154, 98, .16); }
+.seat--known { border-color: var(--blood-4); background: radial-gradient(circle, var(--blood-7), var(--ink-1) 75%); }
+.seat--known .seat__name { color: var(--bone); font-size: .54rem; letter-spacing: .24em; }
+.seat--known[aria-pressed="true"] { border-color: var(--blood-3); box-shadow: 0 0 36px rgba(165, 54, 70, .35); background: radial-gradient(circle, var(--blood-5), var(--blood-9) 80%); }
+.seat-file { display: grid; gap: 14px; padding: clamp(22px, 3vw, 36px); border: 1px solid var(--line-soft); background: var(--ink-2); }
+.seat-file > div { display: grid; gap: 12px; }
+.seat-file p[lang="th"] { color: var(--bone-2); }
+.seat-file.is-shown { animation: file-in .6s var(--ease-out); }
+
+@media (max-width: 900px) {
+  .sins { grid-template-columns: 1fr; }
+}

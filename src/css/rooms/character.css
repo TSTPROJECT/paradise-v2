@@ -1,0 +1,47 @@
+/* 01 — Character file */
+.dossier { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.dossier__art { position: relative; display: grid; justify-items: center; gap: 20px; padding-top: 24px; }
+.niche { position: absolute; inset: 0 6% 64px; pointer-events: none; }
+.niche__arch {
+  position: absolute; inset: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+  background: radial-gradient(ellipse 60% 55% at 50% 60%, rgba(45, 72, 56, .32), transparent 70%);
+}
+.niche__floor { position: absolute; left: 4%; right: 4%; bottom: 8%; height: 34px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0, 0, 0, .7), transparent 70%); }
+
+.cutout { position: relative; width: 100%; aspect-ratio: 2000 / 1390; }
+.cutout__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .9s ease, filter .9s; }
+.cutout__img--mask { opacity: 0; }
+.cutout.is-masked .cutout__img--face { opacity: 0; filter: blur(2px); }
+.cutout.is-masked .cutout__img--mask { opacity: 1; }
+.dossier__mask { position: relative; }
+
+.dossier__file {
+  position: relative;
+  padding: clamp(24px, 3.5vw, 40px);
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+.dossier__file::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line-soft); pointer-events: none; }
+.stamp {
+  position: absolute; right: 18px; top: 22px;
+  padding: 6px 12px; border: 2px solid rgba(165, 54, 70, .7);
+  font: 600 .7rem/1 var(--f-ui); letter-spacing: .3em; color: rgba(200, 112, 123, .85);
+  transform: rotate(-8deg); mix-blend-mode: screen;
+}
+.dossier__subject { font: italic 400 1.4rem/1 var(--f-display); color: var(--gilt); margin-bottom: 18px; }
+.facts { display: grid; }
+.facts > div { display: grid; gap: 4px; padding: 13px 0; border-bottom: 1px solid var(--line-soft); }
+.facts dt { font: 500 .6rem/1.5 var(--f-ui); letter-spacing: .26em; color: var(--bone-3); }
+.facts dt span { letter-spacing: 0; font-size: .7rem; }
+.facts dd { color: var(--bone); font-size: 1.02rem; font-weight: 400; line-height: 1.6; }
+.redact { display: inline-block; width: 3.4em; height: .8em; background: var(--bone-4); vertical-align: -1px; margin-right: 4px; }
+.file-note { margin-top: 22px; padding: 16px 18px; background: rgba(26, 45, 34, .35); border-left: 2px solid var(--gilt-lo); color: var(--bone-2); font-size: .95rem; }
+.file-note__label { font: 500 .58rem/1 var(--f-ui); letter-spacing: .3em; color: var(--gilt); margin-bottom: 8px; }
+.dossier__links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 18px; }
+
+@media (max-width: 1000px) {
+  .dossier { grid-template-columns: 1fr; }
+}

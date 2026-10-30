@@ -1,0 +1,15 @@
+  <!-- Custom cursor: decorative only, never receives pointer events -->
+  <div class="cursor" aria-hidden="true" data-cursor>
+    <div class="cursor__ring"><span class="cursor__label" data-cursor-label></span></div>
+    <div class="cursor__dot">
+      <svg viewBox="0 0 12 12" width="12" height="12"><path class="cursor__gem" d="M6 1 L10 6 L6 11 L2 6 Z"/><path class="cursor__slash" d="M1.5 10.5 L10.5 1.5"/></svg>
+    </div>
+  </div>
+
+  <button class="sound-toggle" type="button" aria-pressed="false" data-sound-toggle>
+    <span class="sound-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="sound-toggle__label" data-sound-label>SOUND OFF</span>
+  </button>
+
+  <div class="sr-status" role="status" aria-live="polite" data-announcer></div>
+  <div class="grain" aria-hidden="true"></div>

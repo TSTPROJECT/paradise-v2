@@ -1,0 +1,91 @@
+/* ---------- The ten doors ---------- */
+.doors {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px) clamp(16px, 2.6vw, 40px);
+  max-width: 1180px; margin: 0 auto;
+}
+.door {
+  --glow: rgba(220, 196, 143, .55);
+  display: grid; gap: 14px; justify-items: center;
+  text-decoration: none; perspective: 900px;
+  -webkit-tap-highlight-color: transparent;
+}
+.door--crimson, .door--locked { --glow: rgba(196, 64, 82, .6); }
+
+.door__casing {
+  position: relative; width: 100%; aspect-ratio: 5 / 9;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+  background: var(--ink-2);
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform .6s var(--ease-out), border-color .4s;
+}
+.door__room, .door__leaf { position: absolute; inset: 8px; border-radius: 50% 50% 0 0 / 27% 27% 0 0; }
+/* What waits behind the door: a glow on the floor of the room */
+.door__room { background: radial-gradient(ellipse 80% 45% at 50% 100%, var(--glow), transparent 70%), var(--ink-0); overflow: hidden; }
+.door__leaf {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .35), transparent 18%, transparent 82%, rgba(0, 0, 0, .3)),
+    linear-gradient(180deg, var(--forest-8), var(--forest-9) 70%, #08100c);
+  border: 1px solid rgba(183, 154, 98, .2);
+  transform-origin: 0 50%;
+  transition: transform .95s var(--ease-door), filter .6s;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, .55);
+}
+.door--crimson .door__leaf { background: linear-gradient(90deg, rgba(0, 0, 0, .35), transparent 18%, transparent 82%, rgba(0, 0, 0, .3)), linear-gradient(180deg, #2a0c13, #16060a 70%, #0d0406); }
+.door__panel { position: absolute; left: 20%; right: 20%; border: 1px solid rgba(183, 154, 98, .16); }
+.door__panel:first-child { top: 17%; height: 30%; border-radius: 50% 50% 0 0 / 30% 30% 0 0; }
+.door__panel:nth-child(2) { top: 58%; height: 30%; }
+.door__plate {
+  position: absolute; left: 50%; top: 51.5%; transform: translate(-50%, -50%);
+  padding: 4px 7px 3px;
+  font: 500 .58rem/1 var(--f-ui); letter-spacing: .18em; color: var(--gilt);
+  border: 1px solid var(--gilt-lo); background: var(--ink-1);
+}
+.door__knob {
+  position: absolute; right: 13%; top: 55%; width: 7px; height: 7px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gilt-hi), var(--gilt-lo));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+}
+.door__lock { position: absolute; right: calc(13% - 2px); top: calc(55% + 14px); width: 11px; height: 8px; border-radius: 1px; background: var(--blood-5); }
+.door__lock::before { content: ""; position: absolute; left: 2px; bottom: 100%; width: 5px; height: 5px; border: 1.5px solid var(--blood-4); border-bottom: 0; border-radius: 4px 4px 0 0; }
+.door.is-unlocked .door__lock { background: var(--gilt-lo); }
+.door.is-unlocked .door__lock::before { border-color: var(--gilt); transform: translateY(-2px) rotate(-20deg); transform-origin: 0 100%; }
+
+/* The light under the door */
+.door__sill {
+  width: 86%; height: 2px; margin-top: -14px;
+  background: radial-gradient(ellipse 45% 100% at var(--lx, 50%) 50%, var(--glow), transparent 75%);
+  opacity: .4; transition: opacity .5s, transform .5s var(--ease-out);
+}
+.door__label { font: 500 .66rem/1.4 var(--f-ui); letter-spacing: .24em; color: var(--bone-2); text-align: center; transition: color .3s; }
+
+.door:hover .door__casing, .door:focus-visible .door__casing { border-color: var(--line-strong); }
+.door:hover .door__leaf, .door:focus-visible .door__leaf { transform: rotateY(-9deg); }
+.door:hover .door__sill, .door:focus-visible .door__sill { opacity: 1; transform: scaleX(1.08); }
+.door:hover .door__label, .door:focus-visible .door__label { color: var(--gilt-hi); }
+.door:focus-visible { outline: none; }
+.door:focus-visible .door__casing { outline: 1px solid var(--gilt-hi); outline-offset: 6px; }
+
+.door.is-opening .door__leaf { transform: rotateY(-80deg); filter: brightness(.7); }
+.door.is-opening .door__sill { opacity: 1; transform: scaleX(1.2); }
+
+.door--locked .door__casing { border-style: dashed; }
+.door--locked:not(.is-unlocked) .door__label { color: var(--bone-4); }
+.door--locked:not(.is-unlocked):hover .door__leaf { transform: none; }
+.door--locked:not(.is-unlocked):hover .door__sill { opacity: .5; }
+.door--locked.is-unlocked .door__casing { border-style: solid; border-color: var(--blood-5); }
+.door.is-rattling .door__leaf { animation: rattle .45s linear; }
+@keyframes rattle { 15%, 55% { transform: rotateY(-3deg) translateX(-1px); } 35%, 75% { transform: rotateY(2deg) translateX(1px); } }
+
+@media (max-width: 860px) {
+  .doors { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 12px; }
+  .door__label { font-size: .58rem; letter-spacing: .16em; }
+}
+@media (max-width: 640px) {
+  .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 22px; max-width: 420px; }
+  .door__casing { aspect-ratio: 5 / 8; }
+  .door__label { font-size: .62rem; letter-spacing: .2em; }
+}

@@ -1,0 +1,17 @@
+/* ---------- Footer ---------- */
+.site-footer {
+  display: grid; justify-items: center; gap: 10px; text-align: center;
+  padding: 64px var(--gutter) 96px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--ink-0);
+}
+.site-footer .rule { margin-bottom: 14px; }
+.site-footer__title { font: 400 1.7rem/1 var(--f-display); letter-spacing: .3em; margin-right: -.3em; color: var(--bone); }
+.site-footer__sub { font: italic 400 1rem/1 var(--f-display); color: var(--bone-3); }
+.site-footer__credit { margin-top: 10px; font: 500 .7rem/1 var(--f-ui); letter-spacing: .26em; color: var(--bone-2); }
+.site-footer__credit strong { color: var(--gilt-hi); font-weight: 500; }
+.site-footer__fan { font: 500 .62rem/1 var(--f-ui); letter-spacing: .24em; color: var(--bone-3); }
+.site-footer__disclaimer { max-width: 40em; color: var(--bone-4); font-size: .86rem; }
+.site-footer__meta { margin-top: 6px; font: 500 .62rem/1 var(--f-ui); letter-spacing: .24em; color: var(--bone-3); }
+.site-footer__meta a { color: var(--gilt); text-decoration: none; padding: 8px 4px; }
+.site-footer__meta a:hover, .site-footer__meta a:focus-visible { color: var(--gilt-hi); }

@@ -1,0 +1,57 @@
+  <!-- 01 CHARACTER FILE -->
+  <section id="character" class="room room--character" role="dialog" aria-modal="true" aria-labelledby="character-title" data-room data-floor-label="ROOM 01 · CHARACTER FILE">
+    <div class="room__bar">
+      <p class="room__number">ROOM 01 <span>/ 09</span></p>
+      <nav class="room__step" aria-label="Adjacent rooms">
+        <span class="room__step-link is-empty" aria-hidden="true"></span>
+        <a class="room__step-link" href="#biography" data-room-link aria-label="Next room: Biography"><span>BIOGRAPHY</span> →</a>
+      </nav>
+      <button class="btn btn--quiet room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">CLASSIFIED · SUBJECT DOSSIER</p>
+        <h2 id="character-title" class="section-title" tabindex="-1">CHARACTER FILE</h2>
+      </header>
+
+      <div class="dossier">
+        <div class="dossier__art">
+          <div class="niche" aria-hidden="true"><span class="niche__arch"></span><span class="niche__floor"></span></div>
+          <figure class="cutout" data-mask-figure>
+            <img class="cutout__img cutout__img--face" src="assets/images/lust/lust-cutout-960.webp"
+                 srcset="assets/images/lust/lust-cutout-960.webp 960w, assets/images/lust/lust-cutout.webp 2000w" sizes="(min-width: 1000px) 54vw, 96vw"
+                 width="2000" height="1390" loading="lazy" decoding="async"
+                 alt="Full-body illustration of Lust seated on the floor in a dark green open jacket and black trousers, long wavy black hair, smiling at the viewer.">
+            <img class="cutout__img cutout__img--mask" src="assets/images/lust/lust-cutout-skull-mask-960.webp"
+                 srcset="assets/images/lust/lust-cutout-skull-mask-960.webp 960w, assets/images/lust/lust-cutout-skull-mask.webp 2000w" sizes="(min-width: 1000px) 54vw, 96vw"
+                 width="2000" height="1390" loading="lazy" decoding="async"
+                 alt="The same pose in warmer tones, Lust's face hidden behind a pale skull mask with fanged teeth.">
+          </figure>
+          <button class="btn btn--quiet dossier__mask" type="button" aria-pressed="false" data-mask-toggle>SHOW THE MASK</button>
+        </div>
+
+        <div class="dossier__file">
+          <div class="stamp" aria-hidden="true">CLASSIFIED</div>
+          <p class="dossier__subject" aria-hidden="true">SUBJECT · LUST</p>
+          <dl class="facts">
+            <div><dt>ALIAS</dt><dd lang="th">Lust (ลัสท์)</dd></div>
+            <div><dt>REAL NAME <span lang="th">· ชื่อจริง</span></dt><dd lang="th">เพลินพริ้ม ดาฤดี เทวอนันต์</dd></div>
+            <div><dt>NATIONALITY <span lang="th">· สัญชาติ</span></dt><dd lang="th"><span class="redact" aria-hidden="true"></span> ยังไม่ระบุแน่ชัด; มีพื้นเพเป็นชาวเอเชีย</dd></div>
+            <div><dt>SEX <span lang="th">· เพศ</span></dt><dd lang="th">หญิง</dd></div>
+            <div><dt>HEIGHT <span lang="th">· ส่วนสูง</span></dt><dd lang="th">ประมาณ 160 ซม. และประมาณ 170 ซม. เมื่อสวมรองเท้าส้นสูง</dd></div>
+            <div><dt>APPARENT AGE <span lang="th">· อายุที่ปรากฏภายนอก</span></dt><dd lang="th">ประมาณปลายวัย 20</dd></div>
+            <div><dt>STATUS <span lang="th">· สถานะ</span></dt><dd lang="th">หนึ่งในสมาชิกกลุ่ม 7 บาป</dd></div>
+            <div><dt>BASE OF OPERATIONS <span lang="th">· ฐานปฏิบัติการ</span></dt><dd lang="th">Paradise อาคารสูงที่รวมสถานบันเทิงและธุรกิจหลายประเภท</dd></div>
+          </dl>
+          <div class="file-note" lang="th">
+            <p class="file-note__label">ANALYST NOTE</p>
+            <p>ข้อมูลบางส่วนในแฟ้มนี้ยังคงว่างเปล่าโดยเจตนา สิ่งที่ยืนยันได้มีเพียงชื่อ ที่ตั้ง และตำแหน่งในกลุ่ม 7 บาป ส่วนที่เหลือ เธอเลือกเองว่าจะให้ใครรู้</p>
+          </div>
+          <div class="dossier__links">
+            <a class="text-link" href="#biography" data-room-link>OPEN BIOGRAPHY →</a>
+            <a class="text-link" href="#abilities" data-room-link>OPEN ABILITIES →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

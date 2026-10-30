@@ -1,0 +1,102 @@
+  <!-- 03 RELATIONSHIPS -->
+  <section id="relationships" class="room room--relations" role="dialog" aria-modal="true" aria-labelledby="relationships-title" data-room data-floor-label="ROOM 03 · RELATIONSHIPS">
+    <div class="room__bar">
+      <p class="room__number">ROOM 03 <span>/ 09</span></p>
+      <nav class="room__step" aria-label="Adjacent rooms">
+        <a class="room__step-link" href="#biography" data-room-link aria-label="Previous room: Biography">← <span>BIOGRAPHY</span></a>
+        <a class="room__step-link" href="#abilities" data-room-link aria-label="Next room: Abilities"><span>ABILITIES</span> →</a>
+      </nav>
+      <button class="btn btn--quiet room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">CONNECTIONS · 4 FILES</p>
+        <h2 id="relationships-title" class="section-title" tabindex="-1">RELATIONSHIPS</h2>
+        <p class="room__lede" lang="th">เลือกเส้นด้ายเพื่อเปิดแฟ้มความสัมพันธ์ บางเส้นผูกด้วยความรัก บางเส้นผูกด้วยสัญญา และบางเส้นผูกด้วยหนี้ที่ไม่มีวันชำระหมด</p>
+      </header>
+
+      <div class="relations">
+        <div class="relmap" data-relmap>
+          <svg class="relmap__lines" viewBox="0 0 400 400" aria-hidden="true">
+            <circle cx="200" cy="200" r="150" fill="none" stroke="#B79A62" stroke-opacity=".12" stroke-dasharray="2 6"/>
+            <circle cx="200" cy="200" r="96" fill="none" stroke="#B79A62" stroke-opacity=".08"/>
+            <path class="relmap__line relmap__line--tony" d="M200 200 C170 150 150 110 100 78"/>
+            <path class="relmap__line relmap__line--tony relmap__line--twin" d="M200 200 C150 172 128 118 100 78"/>
+            <path class="relmap__line relmap__line--meph" d="M200 200 C240 150 262 110 300 78"/>
+            <path class="relmap__line relmap__line--sins" d="M200 200 C170 250 140 292 100 322"/>
+            <path class="relmap__line relmap__line--staff" d="M200 200 C230 250 262 292 300 322"/>
+          </svg>
+          <div class="relmap__center"><span>LUST</span></div>
+          <div class="relmap__nodes" role="tablist" aria-label="Relationship files">
+            <button class="relnode relnode--tony" role="tab" id="tab-tony" aria-controls="rel-tony" aria-selected="true" data-rel-tab><span class="relnode__n">A</span>TONY STARK</button>
+            <button class="relnode relnode--meph" role="tab" id="tab-meph" aria-controls="rel-meph" aria-selected="false" tabindex="-1" data-rel-tab><span class="relnode__n">B</span>MEPHISTO</button>
+            <button class="relnode relnode--sins" role="tab" id="tab-sins" aria-controls="rel-sins" aria-selected="false" tabindex="-1" data-rel-tab><span class="relnode__n">C</span>THE SEVEN SINS</button>
+            <button class="relnode relnode--staff" role="tab" id="tab-staff" aria-controls="rel-staff" aria-selected="false" tabindex="-1" data-rel-tab><span class="relnode__n">D</span>PARADISE STAFF</button>
+          </div>
+        </div>
+
+        <div class="relfiles">
+          <article class="relfile relfile--tony" id="rel-tony" role="tabpanel" aria-labelledby="tab-tony" tabindex="0">
+            <figure class="relfile__art">
+              <button class="relfile__artbtn" type="button" data-lightbox-open="4" aria-label="Enlarge artwork: the grave embrace">
+                <img src="assets/images/lust/grave-embrace-960.webp" srcset="assets/images/lust/grave-embrace-960.webp 960w, assets/images/lust/grave-embrace.webp 1200w" sizes="(min-width: 1000px) 280px, 70vw"
+                     width="1200" height="1801" loading="lazy" decoding="async"
+                     alt="Painted night scene in a cemetery: a man in red armor holds Lust, draped in green, beside a weathered gravestone among autumn shrubs.">
+              </button>
+            </figure>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-A · FIRST LOVE · STATUS: UNRESOLVED</p>
+              <h3 lang="th">โทนี่ สตาร์ค</h3>
+              <p lang="th">รักแรก และบุคคลที่เธอยังตัดใจไม่ได้ ความสัมพันธ์เต็มไปด้วยความผูกพัน ความหึงหวง ความขัดแย้ง และพฤติกรรมที่เป็นพิษ</p>
+              <p lang="th">เขาคือคนที่เปิดโปงตัวตนของเธอ และเป็นเหตุให้เธอสูญเสียทุกอย่าง — แต่ก็ยังเป็นคนที่เธอวนกลับไปหาเสมอ</p>
+              <ul class="threads" aria-label="Relationship threads">
+                <li><span>BOND</span><i style="--v:.95"></i></li>
+                <li><span>JEALOUSY</span><i style="--v:.85"></i></li>
+                <li><span>CONFLICT</span><i style="--v:.9"></i></li>
+                <li><span>TRUST</span><i style="--v:.12"></i></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="relfile relfile--meph" id="rel-meph" role="tabpanel" aria-labelledby="tab-meph" tabindex="0" hidden>
+            <div class="relfile__seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="#B79A62" stroke-width="1"/><circle cx="60" cy="60" r="46" fill="none" stroke="#B79A62" stroke-width=".6" stroke-dasharray="2 4"/><path d="M60 14 L88 98 L16 46 H104 L32 98 Z" fill="none" stroke="#8A2433" stroke-width="1.2"/><circle cx="60" cy="60" r="8" fill="#5A1520"/></svg>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-B · CONTRACT HOLDER · STATUS: BINDING</p>
+              <h3 lang="th">เมมฟิสโต้</h3>
+              <p lang="th">ผู้ทำสัญญากับเธอ แลกพลังกับการเป็นตัวแทนและผู้รับใช้ของเขา</p>
+              <p lang="th">เขาเป็นผู้เปลี่ยนแปลงความจริงและจัดให้มีผู้รับผิดแทนเธอ ทุกสิ่งที่เธอได้คืนมา จึงเป็นของที่ยืมมาจากมือของเขา</p>
+              <a class="text-link" href="#abilities" data-room-link>VIEW THE CONTRACT TERMS →</a>
+            </div>
+          </article>
+
+          <article class="relfile relfile--sins" id="rel-sins" role="tabpanel" aria-labelledby="tab-sins" tabindex="0" hidden>
+            <div class="relfile__seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><g fill="none" stroke="#B79A62" stroke-width="1"><circle cx="60" cy="60" r="54"/></g><g fill="#1B2E23" stroke="#B79A62" stroke-width=".8"><circle cx="60" cy="16" r="7"/><circle cx="94.4" cy="32.6" r="7"/><circle cx="102.9" cy="69.8" r="7"/><circle cx="79.1" cy="99.6" r="7"/><circle cx="40.9" cy="99.6" r="7"/><circle cx="17.1" cy="69.8" r="7"/><circle cx="25.6" cy="32.6" r="7"/></g><circle cx="60" cy="16" r="7" fill="#8A2433"/></svg>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-C · NETWORK · STATUS: ACTIVE</p>
+              <h3 lang="th">สมาชิกกลุ่ม 7 บาป</h3>
+              <p lang="th">เครือข่ายพันธมิตรทางธุรกิจสีดำ ซึ่งเธอเป็นหนึ่งในเจ็ดที่นั่ง</p>
+              <p lang="th">ตัวตนของสมาชิกอีกหกคนยังไม่ถูกเปิดเผยในแฟ้มนี้</p>
+              <a class="text-link" href="#sins" data-room-link>ENTER THE SEVEN SINS →</a>
+            </div>
+          </article>
+
+          <article class="relfile relfile--staff" id="rel-staff" role="tabpanel" aria-labelledby="tab-staff" tabindex="0" hidden>
+            <div class="relfile__keys" aria-hidden="true">
+              <span>B1-014</span><span>B1-022</span><span>B1-031</span><span>B1-047</span><span>B1-—</span>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-D · PERSONNEL · STATUS: UNDER CONTRACT</p>
+              <h3 lang="th">มิวแทนต์ที่ทำงานใน Paradise</h3>
+              <p lang="th">ผู้ที่ได้รับที่พักและสวัสดิการ แต่ต้องทำงานภายใต้ระบบอำนาจของเธอ</p>
+              <p lang="th">พวกเขามีหลังคา มีอาหาร และมีรายได้ — สิ่งที่โลกภายนอกไม่เคยให้ แต่การมีที่ไปเพียงแห่งเดียว ก็ไม่ได้แปลว่าได้เลือกเอง</p>
+              <a class="text-link" href="#club" data-room-link>VISIT THE STAFF QUARTERS →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>

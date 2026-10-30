@@ -1,0 +1,57 @@
+  <!-- 07 THE SEVEN SINS -->
+  <section id="sins" class="room room--sins" role="dialog" aria-modal="true" aria-labelledby="sins-title" data-room data-floor-label="ROOM 07 · THE SEVEN SINS">
+    <div class="room__bar">
+      <p class="room__number">ROOM 07 <span>/ 09</span></p>
+      <nav class="room__step" aria-label="Adjacent rooms">
+        <a class="room__step-link" href="#rubicon" data-room-link aria-label="Previous room: Rubicon — Seed">← <span>RUBICON — SEED</span></a>
+        <a class="room__step-link" href="#gallery" data-room-link aria-label="Next room: Gallery"><span>GALLERY</span> →</a>
+      </nav>
+      <button class="btn btn--quiet room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">THE TABLE OF SEVEN</p>
+        <h2 id="sins-title" class="section-title" tabindex="-1">THE SEVEN SINS</h2>
+        <p class="room__lede" lang="th">เจ็ดที่นั่งรอบโต๊ะเดียวกัน เครือข่ายของผู้มีอำนาจในโลกใต้ดิน มีเพียงที่นั่งเดียวที่ตัวตนถูกเปิดเผยในแฟ้มนี้</p>
+      </header>
+
+      <div class="sins">
+        <div class="sins__table">
+          <svg class="sins__ouroboros" viewBox="0 0 300 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="ouro" x1="0" x2="1"><stop offset="0" stop-color="#151a17"/><stop offset=".5" stop-color="#050606"/><stop offset="1" stop-color="#1b221e"/></linearGradient>
+            </defs>
+            <circle cx="150" cy="150" r="128" fill="none" stroke="#B79A62" stroke-opacity=".12"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="#1B2E23" stroke-width="22"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="url(#ouro)" stroke-width="16" stroke-dasharray="560 50" stroke-linecap="round" transform="rotate(-80 150 150)"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="#B79A62" stroke-width=".6" stroke-dasharray="3 6" opacity=".5"/>
+            <path d="M163 52 C176 50 186 56 188 63 C186 70 176 74 163 72 Z" fill="#060707" stroke="#2b3a31" stroke-width="1" transform="rotate(8 150 150)"/>
+            <circle cx="180" cy="61" r="1.6" fill="#B79A62" transform="rotate(8 150 150)"/>
+            <path d="M150 128 L166 150 L150 172 L134 150 Z" fill="none" stroke="#B79A62" stroke-opacity=".4"/>
+            <path d="M150 140 L157 150 L150 160 L143 150 Z" fill="#8A2433"/>
+          </svg>
+          <ul class="seats" role="list">
+            <li style="--i:0"><button class="seat seat--known" type="button" aria-pressed="true" data-seat="0"><span class="seat__num">I</span><span class="seat__name">LUST</span></button></li>
+            <li style="--i:1"><button class="seat" type="button" aria-pressed="false" data-seat="1"><span class="seat__num">II</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:2"><button class="seat" type="button" aria-pressed="false" data-seat="2"><span class="seat__num">III</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:3"><button class="seat" type="button" aria-pressed="false" data-seat="3"><span class="seat__num">IV</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:4"><button class="seat" type="button" aria-pressed="false" data-seat="4"><span class="seat__num">V</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:5"><button class="seat" type="button" aria-pressed="false" data-seat="5"><span class="seat__num">VI</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:6"><button class="seat" type="button" aria-pressed="false" data-seat="6"><span class="seat__num">VII</span><span class="seat__name">UNDISCLOSED</span></button></li>
+          </ul>
+        </div>
+        <div class="seat-file" aria-live="polite">
+          <div data-seat-file="known">
+            <p class="relfile__tag">SEAT I · IDENTIFIED</p>
+            <h3 lang="th">Lust — เพลินพริ้ม ดาฤดี เทวอนันต์</h3>
+            <p lang="th">เจ้าของ Paradise ผู้ควบคุมธุรกิจบันเทิง โรงแรม คาสิโน และเครือข่ายธุรกิจใต้ดินที่ซ่อนอยู่ภายในอาคาร หนึ่งในสมาชิกกลุ่ม 7 บาป และผู้มีอิทธิพลในโลกใต้ดิน</p>
+          </div>
+          <div data-seat-file="unknown" hidden>
+            <p class="relfile__tag" data-seat-tag>SEAT II · SEALED</p>
+            <h3 lang="th">ยังไม่เปิดเผย</h3>
+            <p lang="th">ตัวตน รูปลักษณ์ และบทบาทของผู้ครองที่นั่งนี้ ยังไม่ถูกเปิดเผย</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

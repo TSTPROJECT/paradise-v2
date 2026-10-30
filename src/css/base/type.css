@@ -1,0 +1,64 @@
+/* Typography: Bodoni Moda for display, Jost for interface labels,
+   Noto Serif Thai for every line of the character's story. */
+[lang="th"] {
+  font-family: var(--f-thai);
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+[lang="th"] strong { font-weight: 500; color: var(--bone); }
+
+.eyebrow {
+  font: 500 .7rem/1.4 var(--f-ui);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--gilt);
+}
+.eyebrow--blood { color: var(--blood-3); }
+
+.wordmark {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: .16em;
+  line-height: .95;
+  color: var(--bone);
+}
+
+.section-title {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 5.6vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: .05em;
+  color: var(--bone);
+  outline: none;
+}
+
+.sub-title {
+  font: 500 .76rem/1.4 var(--f-ui);
+  letter-spacing: .3em;
+  color: var(--gilt);
+  display: flex; align-items: center; gap: 14px;
+}
+.sub-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.prose { display: grid; gap: 1.1em; max-width: var(--measure); color: var(--bone-2); font-size: 1.02rem; }
+
+.text-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 .72rem/1 var(--f-ui); letter-spacing: .24em;
+  color: var(--gilt); text-decoration: none;
+  padding: 8px 0;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size .45s var(--ease-out), color .3s;
+}
+.text-link:hover, .text-link:focus-visible { color: var(--gilt-hi); background-size: 100% 1px; }
+
+/* An ornamental rule: hairline, lozenge, hairline */
+.rule { display: flex; align-items: center; gap: 12px; width: min(240px, 60%); margin-inline: auto; }
+.rule::before, .rule::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong)); }
+.rule::after { transform: scaleX(-1); }
+.rule span { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid var(--gilt); background: var(--blood-7); }
+.rule--left { margin-inline: 0; width: 180px; }
+.rule--left::before { display: none; }

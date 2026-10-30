@@ -1,0 +1,30 @@
+/* 08 — Gallery: justified rows that keep every image's natural aspect ratio */
+.gallery { display: grid; gap: clamp(14px, 2vw, 24px); }
+.gallery__row { display: flex; gap: clamp(14px, 2vw, 24px); }
+.work { flex: var(--r) 1 0; min-width: 0; display: grid; gap: 10px; align-content: start; }
+.work button {
+  position: relative; display: block; width: 100%; aspect-ratio: var(--r);
+  overflow: hidden; background: var(--ink-2); border: 1px solid var(--line-soft);
+  transition: border-color .4s;
+}
+.work img { width: 100%; height: 100%; object-fit: contain; transition: transform 1.4s var(--ease-out), filter .6s; filter: brightness(.9); }
+.work--cutout button { background: radial-gradient(ellipse at 50% 60%, var(--forest-8), var(--ink-2) 70%); }
+.work button::after {
+  content: ""; position: absolute; inset: 10px; border: 1px solid var(--gilt);
+  opacity: 0; transform: scale(1.02); transition: opacity .5s, transform .6s var(--ease-out); pointer-events: none;
+}
+.work button:hover, .work button:focus-visible { border-color: var(--line); }
+.work button:hover img, .work button:focus-visible img { transform: scale(1.025); filter: brightness(1); }
+.work button:hover::after, .work button:focus-visible::after { opacity: .6; transform: none; }
+.work figcaption { display: flex; align-items: baseline; gap: 10px; font: 500 .58rem/1.4 var(--f-ui); letter-spacing: .24em; color: var(--bone-3); }
+.work figcaption b { font: italic 400 .95rem/1 var(--f-display); color: var(--gilt); letter-spacing: 0; }
+
+.is-missing button, .is-missing .arch-frame__button { display: grid; place-items: center; }
+.is-missing img { opacity: 0; }
+.is-missing button::before { content: "ARTWORK UNAVAILABLE"; position: absolute; font: 500 .6rem/1 var(--f-ui); letter-spacing: .26em; color: var(--bone-4); }
+
+@media (max-width: 760px) {
+  .gallery__row { flex-wrap: wrap; }
+  .work { flex: 1 1 calc(50% - 12px); }
+  .gallery__row:first-child .work, .gallery__row--studies .work { flex-basis: 100%; }
+}

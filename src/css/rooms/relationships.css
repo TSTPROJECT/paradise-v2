@@ -1,0 +1,68 @@
+/* 03 — Relationships */
+.relations { display: grid; grid-template-columns: minmax(280px, 420px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.relmap { position: relative; aspect-ratio: 1; width: 100%; max-width: 420px; justify-self: center; }
+.relmap__lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.relmap__line { fill: none; stroke: var(--gilt); stroke-opacity: .22; stroke-width: 1; transition: stroke .5s, stroke-opacity .5s, stroke-width .5s; }
+.relmap__line--twin { stroke-dasharray: 3 5; }
+.relmap[data-active="tony"] .relmap__line--tony,
+.relmap[data-active="meph"] .relmap__line--meph,
+.relmap[data-active="sins"] .relmap__line--sins,
+.relmap[data-active="staff"] .relmap__line--staff { stroke: var(--blood-4); stroke-opacity: .95; stroke-width: 1.4; stroke-dasharray: 4 6; animation: thread 1.6s linear infinite; }
+@keyframes thread { to { stroke-dashoffset: -20; } }
+.relmap__center {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 27%; aspect-ratio: 1; border-radius: 50%;
+  display: grid; place-items: center;
+  background: radial-gradient(circle, var(--blood-7), var(--ink-1) 72%);
+  border: 1px solid var(--gilt-lo);
+  font: italic 400 clamp(1rem, 2vw, 1.3rem)/1 var(--f-display); letter-spacing: .14em; color: var(--bone);
+  box-shadow: 0 0 40px rgba(138, 36, 51, .3);
+}
+.relnode {
+  position: absolute; transform: translate(-50%, -50%);
+  display: grid; justify-items: center; gap: 6px;
+  min-width: 112px; padding: 10px 12px;
+  border: 1px solid var(--line); background: var(--ink-1);
+  font: 500 .58rem/1.3 var(--f-ui); letter-spacing: .2em; color: var(--bone-2);
+  transition: color .3s, border-color .3s, background-color .3s, box-shadow .4s;
+}
+.relnode__n { font: italic 400 1.1rem/1 var(--f-display); color: var(--gilt); letter-spacing: 0; }
+.relnode:hover, .relnode:focus-visible { color: var(--bone); border-color: var(--line-strong); }
+.relnode[aria-selected="true"] { color: var(--gilt-hi); border-color: var(--gilt); background: var(--forest-8); box-shadow: 0 0 30px rgba(183, 154, 98, .14); }
+.relnode--tony { left: 25%; top: 19.5%; }
+.relnode--meph { left: 75%; top: 19.5%; }
+.relnode--sins { left: 25%; top: 80.5%; }
+.relnode--staff { left: 75%; top: 80.5%; }
+
+.relfiles { min-height: 360px; }
+.relfile { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 3vw, 36px); align-items: start; outline: none; }
+.relfile.is-shown { animation: file-in .7s var(--ease-out); }
+@keyframes file-in { from { opacity: 0; transform: translateX(14px); } }
+.relfile__art { width: clamp(180px, 22vw, 280px); }
+.relfile__artbtn { display: block; border: 1px solid var(--line); overflow: hidden; background: var(--ink-2); }
+.relfile__artbtn img { width: 100%; transition: transform 1.4s var(--ease-out); }
+.relfile__artbtn:hover img, .relfile__artbtn:focus-visible img { transform: scale(1.04); }
+.relfile__seal { width: clamp(96px, 12vw, 140px); }
+.relfile__keys { display: grid; gap: 6px; }
+.relfile__keys span { padding: 6px 10px; border: 1px solid var(--line-soft); font: 500 .6rem/1 var(--f-ui); letter-spacing: .2em; color: var(--bone-3); }
+.relfile__keys span:last-child { color: var(--blood-3); border-color: rgba(138, 36, 51, .5); }
+.relfile__body { display: grid; gap: 14px; }
+.relfile__body p[lang="th"] { color: var(--bone-2); }
+.relfile__body h3, .seat-file h3 { font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.4; color: var(--bone); }
+.relfile__tag { font: 500 .6rem/1.5 var(--f-ui); letter-spacing: .26em; color: var(--gilt); }
+.threads { display: grid; gap: 10px; margin-top: 6px; max-width: 360px; }
+.threads li { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 12px; }
+.threads span { font: 500 .58rem/1 var(--f-ui); letter-spacing: .24em; color: var(--bone-3); }
+.threads i { position: relative; height: 3px; background: var(--ink-3); }
+.threads i::after { content: ""; position: absolute; inset: 0; transform-origin: left; transform: scaleX(var(--v)); background: linear-gradient(90deg, var(--blood-5), var(--blood-3)); transition: transform 1.2s var(--ease-out); }
+.relfile:not(.is-shown) .threads i::after { transform: scaleX(0); }
+
+@media (max-width: 1000px) {
+  .relations { grid-template-columns: 1fr; }
+  .relmap { max-width: 380px; }
+}
+@media (max-width: 560px) {
+  .relfile { grid-template-columns: 1fr; }
+  .relfile__art { width: min(260px, 80%); }
+  .relnode { min-width: 96px; padding: 8px; font-size: .52rem; letter-spacing: .14em; }
+}

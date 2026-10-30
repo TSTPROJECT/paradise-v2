@@ -1,0 +1,100 @@
+  <!-- ===================== THE INVITATION ===================== -->
+  <section id="invitation" class="invitation" aria-labelledby="invitation-title" data-invitation>
+    <div class="invitation__leaf invitation__leaf--l" aria-hidden="true"></div>
+    <div class="invitation__leaf invitation__leaf--r" aria-hidden="true"></div>
+
+    <div class="invitation__stage" aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <g fill="none" stroke="#B79A62">
+          <path d="M150 800 V340 A450 450 0 0 1 1050 340 V800" opacity=".10"/>
+          <path d="M260 800 V370 A340 340 0 0 1 940 370 V800" opacity=".08"/>
+          <path d="M360 800 V400 A240 240 0 0 1 840 400 V800" opacity=".07"/>
+          <path d="M0 800 L470 600 M1200 800 L730 600" opacity=".06"/>
+        </g>
+        <g stroke="#B79A62" opacity=".05">
+          <path d="M120 0 V800 M1080 0 V800"/>
+        </g>
+      </svg>
+      <div class="invitation__shaft"></div>
+    </div>
+
+    <div class="invite" data-invite-frame>
+      <div class="invite__card">
+        <span class="invite__corner invite__corner--tl" aria-hidden="true"></span>
+        <span class="invite__corner invite__corner--tr" aria-hidden="true"></span>
+        <span class="invite__corner invite__corner--bl" aria-hidden="true"></span>
+        <span class="invite__corner invite__corner--br" aria-hidden="true"></span>
+        <span class="invite__drip" aria-hidden="true"></span>
+
+        <svg class="invite__crest" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+          <path d="M24 3 L41 24 L24 45 L7 24 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M24 10 L35.5 24 L24 38 L12.5 24 Z" fill="none" stroke="currentColor" stroke-width=".6" opacity=".6"/>
+          <path d="M24 16 L30 24 L24 32 L18 24 Z" fill="#8A2433"/>
+        </svg>
+        <p class="eyebrow">BY INVITATION ONLY · Nº 000</p>
+        <h1 id="invitation-title" class="wordmark">PARADISE</h1>
+        <p class="invite__sub"><span>ADMIT ONE</span><i aria-hidden="true"></i><span>THE HOUSE OF LUST</span></p>
+        <p class="invite__text" lang="th">คำเชิญนี้ออกให้เพียงครั้งเดียว ประตูของ Paradise เปิดต้อนรับทุกคนที่เดินเข้ามา<br>แต่ยังไม่เคยมีใครจำได้ว่า ทางออกอยู่ตรงไหน</p>
+
+        <div class="invite__foot">
+          <p class="invite__hint" data-apple-hint>TAKE THE APPLE TO ENTER <span aria-hidden="true">↗</span></p>
+          <p class="invite__verdict" lang="th" data-apple-verdict hidden>บางการตัดสินใจ เมื่อเลือกแล้ว ไม่อาจย้อนคืนได้อีก</p>
+          <div class="invite__actions">
+            <button class="btn btn--gilt" type="button" data-enter hidden>ENTER PARADISE</button>
+            <button class="btn btn--quiet" type="button" data-skip-fall hidden>SKIP ANIMATION</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="apple" type="button" data-apple aria-label="Take the apple — enter Paradise">
+        <svg class="apple__svg" viewBox="0 0 120 132" aria-hidden="true">
+          <defs>
+            <radialGradient id="apple-body" cx="36%" cy="38%" r="74%">
+              <stop offset="0" stop-color="#b8404b"/>
+              <stop offset=".3" stop-color="#8f2432"/>
+              <stop offset=".68" stop-color="#5a0f1a"/>
+              <stop offset="1" stop-color="#1f0408"/>
+            </radialGradient>
+            <radialGradient id="apple-hi" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#f7e9de" stop-opacity=".8"/>
+              <stop offset=".45" stop-color="#f7e9de" stop-opacity=".16"/>
+              <stop offset="1" stop-color="#f7e9de" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="apple-cavity" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#170306" stop-opacity=".95"/>
+              <stop offset="1" stop-color="#170306" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="apple-rim" x1="0" x2="1" y1="0" y2="0">
+              <stop offset=".62" stop-color="#5b8a6a" stop-opacity="0"/>
+              <stop offset="1" stop-color="#5b8a6a" stop-opacity=".5"/>
+            </linearGradient>
+            <linearGradient id="apple-leaf" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#456a4f"/>
+              <stop offset="1" stop-color="#18291e"/>
+            </linearGradient>
+            <clipPath id="apple-clip"><path d="M60 31 C47 20 21 18 13 43 C5 68 18 104 40 117 C48 122 54 120 60 116 C66 120 72 122 80 117 C102 104 115 68 107 43 C99 18 73 20 60 31 Z"/></clipPath>
+          </defs>
+          <ellipse class="apple__shadow" cx="60" cy="126" rx="34" ry="5" fill="#000" opacity=".5"/>
+          <path d="M60 31 C47 20 21 18 13 43 C5 68 18 104 40 117 C48 122 54 120 60 116 C66 120 72 122 80 117 C102 104 115 68 107 43 C99 18 73 20 60 31 Z" fill="url(#apple-body)"/>
+          <g clip-path="url(#apple-clip)">
+            <path d="M34 30 C24 55 26 90 42 118" stroke="#3a0a10" stroke-width="5" fill="none" opacity=".35"/>
+            <path d="M84 28 C98 52 96 92 78 118" stroke="#3a0a10" stroke-width="6" fill="none" opacity=".3"/>
+            <path d="M58 36 C56 64 58 96 60 118" stroke="#a8323d" stroke-width="3" fill="none" opacity=".22"/>
+            <path d="M46 34 C40 62 44 94 52 118" stroke="#b5434c" stroke-width="2" fill="none" opacity=".16"/>
+            <rect x="0" y="0" width="120" height="132" fill="url(#apple-rim)"/>
+            <ellipse cx="60" cy="125" rx="46" ry="18" fill="#140306" opacity=".55"/>
+          </g>
+          <ellipse cx="60" cy="33" rx="13" ry="6" fill="url(#apple-cavity)"/>
+          <ellipse cx="38" cy="50" rx="11" ry="17" transform="rotate(-24 38 50)" fill="url(#apple-hi)"/>
+          <ellipse cx="44" cy="40" rx="3" ry="2" fill="#fff" opacity=".38"/>
+          <g fill="#e9c9b0" opacity=".26">
+            <circle cx="70" cy="58" r=".9"/><circle cx="80" cy="74" r=".8"/><circle cx="52" cy="82" r=".9"/><circle cx="66" cy="92" r=".7"/><circle cx="88" cy="56" r=".7"/><circle cx="40" cy="72" r=".7"/><circle cx="76" cy="100" r=".8"/>
+          </g>
+          <path d="M60 33 C60 24 62 15 67 8" stroke="#3b2a1c" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M60 33 C60 24 62 15 67 8" stroke="#6b5136" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".7"/>
+          <path d="M64 17 C72 4 92 2 100 9 C92 20 76 24 64 17 Z" fill="url(#apple-leaf)"/>
+          <path d="M65 16.5 C76 12 88 9 99 9" stroke="#5f8a69" stroke-width=".8" fill="none" opacity=".7"/>
+        </svg>
+      </button>
+    </div>
+  </section>

@@ -1,0 +1,14 @@
+/* Reduced motion: every interaction still works, the movement is removed.
+   The apple drops instantly, doors open without the veil, serpents rest. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0s !important;
+  }
+  .apple__svg, .sins__ouroboros, .invitation__shaft { animation: none !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+  .room:not(.is-open) .room__inner > * { transform: none; }
+}

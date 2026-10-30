@@ -1,0 +1,98 @@
+/* ---------- Lobby ---------- */
+.lobby { padding-top: var(--header-h); outline: none; }
+
+.hero {
+  position: relative; isolation: isolate;
+  min-height: calc(100svh - var(--header-h));
+  max-width: 1480px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: center; gap: clamp(32px, 6vw, 104px);
+  padding: clamp(40px, 7vh, 88px) var(--gutter) clamp(110px, 15vh, 150px);
+}
+.hero__backdrop { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
+.hero__backdrop svg { width: 100%; height: 100%; }
+.hero::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  right: 4%; top: 8%; width: 52%; height: 84%;
+  background: radial-gradient(ellipse at 50% 45%, rgba(138, 36, 51, .16), transparent 62%);
+}
+
+.hero__text { position: relative; z-index: 2; display: grid; gap: 22px; justify-items: start; }
+.wordmark--hero {
+  font-size: clamp(3.4rem, 10.4vw, 9.6rem);
+  letter-spacing: .04em; line-height: .86;
+  margin-left: -.04em;
+}
+.wordmark--hero span { font-style: italic; color: var(--gilt-hi); letter-spacing: .02em; }
+.hero__sub { font: italic 400 clamp(1.2rem, 2vw, 1.6rem)/1.2 var(--f-display); color: var(--bone-2); }
+.hero__sub em { color: var(--blood-3); }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 6px; }
+
+.hero__art { position: relative; z-index: 3; justify-self: center; width: min(100%, 520px); }
+.arch-frame { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: 50% 50% 0 0 / 38% 38% 0 0; }
+.arch-frame::before {
+  content: ""; position: absolute; inset: -8px; border: 1px solid var(--line-soft);
+  border-radius: 50% 50% 0 0 / 38% 38% 0 0; pointer-events: none;
+}
+.arch-frame__button {
+  display: block; width: 100%; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+  background: var(--ink-2);
+}
+.arch-frame__button img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%;
+  transform: scale(1.01);
+  transition: transform 1.6s var(--ease-out), filter .8s;
+  filter: saturate(.92) brightness(.94);
+}
+.arch-frame__button:hover img, .arch-frame__button:focus-visible img { transform: scale(1.045); filter: saturate(1) brightness(1); }
+.arch-frame__cap {
+  position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%);
+  font: 500 .6rem/1 var(--f-ui); letter-spacing: .3em; color: var(--bone-4); white-space: nowrap;
+}
+
+/* Secret 1 — the gilded skull */
+.skull-ornament {
+  position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%);
+  width: 44px; height: 44px; padding: 9px;
+  border: 1px solid var(--gilt-lo); border-radius: 50%;
+  background: var(--ink-1); color: var(--gilt);
+  transition: color .3s, border-color .3s, box-shadow .4s;
+}
+.skull-ornament:hover, .skull-ornament:focus-visible, .skull-ornament[aria-expanded="true"] {
+  color: var(--gilt-hi); border-color: var(--gilt); box-shadow: 0 0 24px rgba(183, 154, 98, .25);
+}
+.inscription {
+  position: absolute; left: 50%; bottom: 34px; z-index: 4;
+  width: max-content; max-width: min(320px, 86vw);
+  transform: translate(-50%, 8px);
+  padding: 16px 20px;
+  background: var(--ink-0); border: 1px solid var(--gilt-lo);
+  color: var(--bone); font-size: .95rem; text-align: center;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .4s, transform .5s var(--ease-out), visibility .4s;
+}
+.skull-ornament:hover + .inscription, .skull-ornament:focus-visible + .inscription, .skull-ornament[aria-expanded="true"] + .inscription {
+  opacity: 1; visibility: visible; transform: translate(-50%, 0);
+}
+
+.hero__scroll { position: absolute; left: 50%; bottom: 26px; width: 30px; height: 46px; transform: translateX(-50%); z-index: 2; }
+.hero__scroll span { position: absolute; left: 50%; top: 0; width: 1px; height: 100%; background: linear-gradient(transparent, var(--gilt)); animation: drop-line 2.4s var(--ease-in-out) infinite; transform-origin: top; }
+@keyframes drop-line { 0% { transform: scaleY(0); } 55% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; gap: 64px; padding-top: 40px; min-height: 0; }
+  .hero__art { order: -1; width: min(100%, 420px); }
+  .hero::before { right: 0; width: 100%; height: 60%; }
+}
+@media (max-width: 560px) {
+  .hero__art { width: min(100%, 340px); }
+  .hero__actions .btn { width: 100%; }
+}
+
+/* ---------- Corridor heading ---------- */
+.corridor { position: relative; padding: clamp(56px, 10vh, 120px) var(--gutter) clamp(80px, 12vh, 140px); max-width: 1480px; margin: 0 auto; }
+.corridor__head { position: relative; display: grid; justify-items: center; gap: 14px; text-align: center; padding-bottom: 46px; margin-bottom: clamp(36px, 6vh, 64px); }
+.corridor__note { color: var(--bone-3); max-width: 36em; font-size: .98rem; }
+.locked-note { margin-top: 36px; text-align: center; font: 500 .64rem/1.4 var(--f-ui); letter-spacing: .3em; color: var(--bone-4); transition: color .6s; }
+.locked-note.is-unlocked { color: var(--gilt); }
