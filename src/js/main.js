@@ -1,6 +1,7 @@
 // PARADISE V2 — entry point. Each system and feature owns one part of the
 // building; this file only starts them in order.
 import { initSound } from './systems/sound.js';
+import { initMusic } from './systems/music.js';
 import { initCursor } from './systems/cursor.js';
 import { initSecrets } from './systems/secrets.js';
 import { initRouter, bootDeepLink } from './systems/router.js';
@@ -20,7 +21,7 @@ import { initSins } from './features/sins.js';
 import { ui } from './core/layers.js';
 
 const steps = [
-  initSound, initCursor, initSecrets, initRouter, initLightbox, initDirectory,
+  initSound, initMusic, initCursor, initSecrets, initRouter, initLightbox, initDirectory,
   initInvitation, initDoors, initLobby, initToggles, initRelationships,
   initAbilities, initClub, initRubicon, initSins, initSerpents, initReveal,
 ];

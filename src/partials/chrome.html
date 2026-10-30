@@ -6,10 +6,16 @@
     </div>
   </div>
 
-  <button class="sound-toggle" type="button" aria-pressed="false" data-sound-toggle>
-    <span class="sound-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <span class="sound-toggle__label" data-sound-label>SOUND OFF</span>
-  </button>
+  <div class="audio-dock" role="group" aria-label="Audio">
+    <button class="audio-toggle" type="button" aria-pressed="false" data-music-toggle>
+      <svg class="audio-toggle__note" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M4.2 9.4 V2.6 L10.2 1.4 V8.2" fill="none"/><ellipse cx="2.9" cy="9.5" rx="1.5" ry="1.2"/><ellipse cx="8.9" cy="8.3" rx="1.5" ry="1.2"/></svg>
+      <span class="audio-toggle__label" data-music-label>MUSIC OFF</span>
+    </button>
+    <button class="audio-toggle" type="button" aria-pressed="false" data-sound-toggle>
+      <span class="audio-toggle__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="audio-toggle__label" data-sound-label>SOUND OFF</span>
+    </button>
+  </div>
 
   <div class="sr-status" role="status" aria-live="polite" data-announcer></div>
   <div class="grain" aria-hidden="true"></div>

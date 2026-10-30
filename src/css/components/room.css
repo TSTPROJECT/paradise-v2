@@ -16,7 +16,7 @@
 /* No JavaScript: the rooms simply follow the lobby as one long page. */
 html.no-js .room { position: static; visibility: visible; opacity: 1; overflow: visible; border-top: 1px solid var(--line-soft); }
 html.no-js .room__inner > * { transform: none; opacity: 1; }
-html.no-js .room__bar, html.no-js .invitation, html.no-js .sound-toggle, html.no-js .menu-toggle { display: none; }
+html.no-js .room__bar, html.no-js .invitation, html.no-js .audio-dock, html.no-js .menu-toggle { display: none; }
 
 .room__bar {
   position: sticky; top: 0; z-index: 5;

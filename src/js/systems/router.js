@@ -107,8 +107,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabi
 function trap(containers, e) {
   const items = containers.flatMap((c) => $$(FOCUSABLE, c))
     .filter((el) => !el.closest('[hidden], [inert]') && el.getClientRects().length);
-  const sound = $('[data-sound-toggle]');
-  if (sound) items.push(sound);
+  items.push(...$('.audio-dock button'));
   if (!items.length) return;
   const first = items[0], last = items[items.length - 1];
   const inside = items.includes(document.activeElement);

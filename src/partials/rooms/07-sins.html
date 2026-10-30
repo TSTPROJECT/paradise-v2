@@ -19,14 +19,54 @@
         <div class="sins__table">
           <svg class="sins__ouroboros" viewBox="0 0 300 300" aria-hidden="true">
             <defs>
-              <linearGradient id="ouro" x1="0" x2="1"><stop offset="0" stop-color="#151a17"/><stop offset=".5" stop-color="#050606"/><stop offset="1" stop-color="#1b221e"/></linearGradient>
+              <linearGradient id="ouro-head" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#25332b"/><stop offset=".5" stop-color="#0a0f0c"/><stop offset="1" stop-color="#030404"/></linearGradient>
+              <radialGradient id="ouro-eye"><stop offset="0" stop-color="#ffd884"/><stop offset=".55" stop-color="#c58d2c"/><stop offset="1" stop-color="#5b1a12"/></radialGradient>
+              <!-- The body: bands that taper from the neck (top left) clockwise to a fine tail tip inside the mouth. -->
+              <g id="ouro-bands" fill="none" stroke-linecap="round">
+                <circle cx="150" cy="150" r="96" stroke-width="2.6" stroke-dasharray="585 700" transform="rotate(-89.15 150 150)"/>
+                <circle cx="150" cy="150" r="96" stroke-width="5" stroke-dasharray="565 700" transform="rotate(-77.21 150 150)"/>
+                <circle cx="150" cy="150" r="96" stroke-width="8" stroke-dasharray="535 700" transform="rotate(-59.3 150 150)"/>
+                <circle cx="150" cy="150" r="96" stroke-width="11" stroke-dasharray="495 700" transform="rotate(-35.43 150 150)"/>
+                <circle cx="150" cy="150" r="96" stroke-width="14" stroke-dasharray="440 700" transform="rotate(-2.61 150 150)"/>
+                <circle cx="150" cy="150" r="96" stroke-width="16.5" stroke-dasharray="370 700" transform="rotate(39.17 150 150)"/>
+              </g>
+              <filter id="ouro-fx" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="fat"/>
+                <feFlood flood-color="#17221c"/>
+                <feComposite in2="fat" operator="in" result="rim"/>
+                <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="round"/>
+                <feSpecularLighting in="round" surfaceScale="5" specularConstant=".9" specularExponent="34" lighting-color="#9fb6a8" result="gloss"><feDistantLight azimuth="225" elevation="35"/></feSpecularLighting>
+                <feComposite in="gloss" in2="SourceAlpha" operator="in" result="sheen"/>
+                <feMerge><feMergeNode in="rim"/><feMergeNode in="SourceGraphic"/><feMergeNode in="sheen"/></feMerge>
+              </filter>
+              <mask id="ouro-body" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="300"><use href="#ouro-bands" stroke="#fff"/></mask>
             </defs>
             <circle cx="150" cy="150" r="128" fill="none" stroke="#B79A62" stroke-opacity=".12"/>
-            <circle cx="150" cy="150" r="96" fill="none" stroke="#1B2E23" stroke-width="22"/>
-            <circle cx="150" cy="150" r="96" fill="none" stroke="url(#ouro)" stroke-width="16" stroke-dasharray="560 50" stroke-linecap="round" transform="rotate(-80 150 150)"/>
-            <circle cx="150" cy="150" r="96" fill="none" stroke="#B79A62" stroke-width=".6" stroke-dasharray="3 6" opacity=".5"/>
-            <path d="M163 52 C176 50 186 56 188 63 C186 70 176 74 163 72 Z" fill="#060707" stroke="#2b3a31" stroke-width="1" transform="rotate(8 150 150)"/>
-            <circle cx="180" cy="61" r="1.6" fill="#B79A62" transform="rotate(8 150 150)"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="#1B2E23" stroke-width="24" opacity=".55"/>
+            <g filter="url(#ouro-fx)">
+            <!-- the throat, seen between the open jaws behind the tail -->
+            <path d="M19 -3.6 L33.6 -6.4 L31.4 1.2 L19 -1.5 Z" fill="#4a0f17" transform="translate(133.33 55.46) rotate(-5) scale(1.3)"/>
+            <use href="#ouro-bands" stroke="#050706"/>
+            <g mask="url(#ouro-body)" fill="none">
+              <circle cx="150" cy="150" r="99.5" stroke="#16201a" stroke-width="6" stroke-dasharray="2.6 3.2"/>
+              <circle cx="150" cy="150" r="91" stroke="#1d2922" stroke-width="5" stroke-dasharray="1.3 3.3"/>
+            </g>
+            <!-- The head in profile at the neck, jaws closed on the tail. -->
+            <g transform="translate(133.33 55.46) rotate(-5) scale(1.3)">
+              <path d="M-3 8.4 C5 9.6 14 8.4 22 5.4 C26 3.9 29.4 2.4 31 1.4 C31.6 .8 31 .2 30 .2 L19 -1.5 L19 -3.6 C12 -2.6 4 -1.2 -3 -.8 Z" fill="#050706" stroke="#2b3a31" stroke-width=".7"/>
+              <path d="M-3 -8.4 C3 -11.8 11 -13.2 19 -12.2 C25.5 -11.3 30.5 -9.2 33.6 -7 C35.2 -5.9 34.8 -4.8 33.2 -4.9 L19 -3.6 C12 -2.6 4 -1.2 -3 -.8 Z" fill="url(#ouro-head)" stroke="#2b3a31" stroke-width=".7"/>
+              <path d="M25.6 -4.2 L26.9 -1.2 L28.2 -4.4 Z M22.4 -1.1 L23.4 -3.6 L24.4 -.9 Z" fill="#efe6d2"/>
+              <path d="M-3 -.3 C4 -.8 12 -2.2 19 -2.6" fill="none" stroke="#000" stroke-width=".8" opacity=".7"/>
+              <path d="M19 -4.1 L33 -5.4" fill="none" stroke="#1e2a23" stroke-width=".6" stroke-dasharray="1.4 1.4"/>
+              <path d="M0 -9.4 C8 -12 16 -12.3 24 -10.6" fill="none" stroke="#3d5246" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+              <circle cx="21.5" cy="-7.6" r="5" fill="#c0263a" opacity=".22"/>
+              <ellipse cx="21.5" cy="-7.6" rx="2.5" ry="2" fill="url(#ouro-eye)" stroke="#000" stroke-width=".4"/>
+              <ellipse cx="21.7" cy="-7.6" rx=".55" ry="1.7" fill="#030303"/>
+              <circle cx="22.3" cy="-8.2" r=".4" fill="#fff6e0"/>
+              <path d="M16.5 -11.2 L27 -9.6 L25.6 -8.7 L17.4 -9.6 Z" fill="#141d18" stroke="#3b5043" stroke-width=".4"/>
+              <circle cx="31.6" cy="-6.4" r=".5" fill="#000"/>
+            </g>
+            </g>
             <path d="M150 128 L166 150 L150 172 L134 150 Z" fill="none" stroke="#B79A62" stroke-opacity=".4"/>
             <path d="M150 140 L157 150 L150 160 L143 150 Z" fill="#8A2433"/>
           </svg>

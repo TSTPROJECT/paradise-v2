@@ -63,7 +63,10 @@ exactly as in the original. No members, relationships or abilities were added.
 
 New in V2 (presentation only, no new canon): previous/next room navigation in every room,
 a Directory overlay that shows room numbers, door "light under the door" states,
-cursor labels (ENTER / LOCKED / TAKE / VIEW), and a reverb bus for sound.
+cursor labels (ENTER / LOCKED / TAKE / VIEW), a reverb bus for sound, an original
+synthesised score with its own MUSIC control (off by default), and redrawn serpents:
+glossy scaled vipers that sway, flick their tongues and strike with a hiss when the
+pointer comes too close, and an ouroboros that visibly bites its own tail.
 
 ## Ambiguities reported, not resolved
 

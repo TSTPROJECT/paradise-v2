@@ -57,11 +57,17 @@ Thai lore lives in `src/partials/rooms/*.html`, plus a few dynamic strings in
 New artwork goes in `src/assets/images/lust/` (a full-size WebP and a `-960` version)
 and gets an entry in `src/js/data/art.js` and the gallery partial.
 
-## Sound
+## Sound and music
 
-Sound is off until the visitor turns it on. Every cue is synthesised in the browser
-with the Web Audio API (`src/js/systems/sound.js`), so there are no audio files and
-no third-party licences.
+Both are off until the visitor turns them on, with separate MUSIC and SOUND buttons.
+Everything is synthesised in the browser with the Web Audio API, so there are no
+audio files and no third-party licences:
+
+- `src/js/systems/sound.js`: interface cues (doors, paper, the apple, a serpent's hiss)
+- `src/js/systems/music.js`: *The Paradise Waltz*, an original slow waltz in D harmonic
+  minor for organ drone, strings, a distant ballroom, an old music box, cello and bell.
+  It is performed live from the score in that file, changes arrangement every 16 bars,
+  and fades out while the tab is hidden.
 
 ## Deploy
 

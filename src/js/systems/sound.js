@@ -6,8 +6,9 @@ import { $ } from '../core/dom.js';
 import { store } from '../core/store.js';
 import { announce } from '../core/bus.js';
 
-let ctx = null, out = null, wet = null, noiseBuf = null;
+let ctx = null, out = null, wet = null, noiseBuf = null, master = null;
 let enabled = store.get('sound') === 'on';
+let held = false; // music keeps the context awake while effects are off
 let voices = 0;
 const lastPlayed = {};
 
@@ -15,6 +16,7 @@ const lastPlayed = {};
 const MIN_GAP = {
   ui: 70, nav: 90, menu: 300, handle: 380, latch: 250, creak: 600, paper: 220, open: 250, close: 200,
   secret: 1500, error: 260, pluck: 300, whoosh: 600, thud: 300, drip: 600, ding: 300, seal: 300, toll: 900,
+  hiss: 2500,
 };
 
 function impulse(c, seconds, decay) {
@@ -42,6 +44,7 @@ function ensure() {
   out.connect(comp);
   out.connect(wet); wet.connect(verb); verb.connect(verbTone); verbTone.connect(comp);
   comp.connect(ctx.destination);
+  master = comp;
   noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 1.5, ctx.sampleRate);
   const d = noiseBuf.getChannelData(0);
   for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
@@ -120,7 +123,20 @@ const recipes = {
   ding(t) { tone('sine', 1046.5, t, 1.1, .045); tone('sine', 1318.5, t + .09, 1.1, .04); return 1.2; },
   seal(t) { noise(t, .025, .28, 'bandpass', 1400, 3); noise(t + .04, .02, .2, 'bandpass', 900, 3); noise(t + .09, .05, .13, 'bandpass', 600, 2); return .15; },
   toll(t) { tone('sine', 110, t, 2.4, .18); tone('sine', 220.8, t, 1.6, .055); tone('sine', 331, t, 1.1, .032); return 2.4; },
+  // a serpent striking — breath forced through the throat
+  hiss(t) { noise(t, .75, .15, 'highpass', 3600, .6, null, .05); noise(t, .6, .07, 'bandpass', 6400, 1.4, 4200, .03); return .8; },
 };
+
+/** The shared context and its final stage, created inside a user gesture. */
+export function audio() {
+  return ensure() ? { ctx, master, noiseBuf } : null;
+}
+
+/** Music holds the context open; once nothing needs it, it is suspended. */
+export function holdAudio(on) {
+  held = on;
+  if (!held && !enabled && ctx) ctx.suspend().catch(() => {});
+}
 
 export function play(name, opts) {
   if (!enabled || !ctx || ctx.state !== 'running' || !recipes[name]) return;
@@ -151,7 +167,7 @@ export function initSound() {
       if (enabled) {
         if (!ensure()) { enabled = false; announce('Sound is not supported in this browser'); }
         else setTimeout(() => play('ui'), 30);
-      } else if (ctx) { ctx.suspend().catch(() => {}); }
+      } else if (ctx && !held) { ctx.suspend().catch(() => {}); }
       render();
       announce(enabled ? 'Sound on' : 'Sound off');
     });
